@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+	<head>
+
+		<title>Nathan_Yu | Frontend</title>
+
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<script type="text/javascript" src="./js/vue.min.js"></script>
+		<script type="text/javascript" src="./js/app.js"></script>
+
+		<link href="./css/app.css" media="all" rel="stylesheet" type="text/css">
+		<link href="./css/animate.min.css" media="all" rel="stylesheet" type="text/css">
+		<link href="./css/materialdesignicons.min.css" media="all" rel="stylesheet" type="text/css">
+
+		<meta name="title" content="Nathan_Yu | Frontend" />
+		<meta name="keywords" content="thinker, developer, javascript, think and do, code, github, page" />
+		<meta name="robots" content="all">
+		<meta name="author" content="Nathan_Yu" />
+		<meta name=”owner” content="Nathan_Yu" />
+		<meta name=”copyright” content="(c) 2017" />
+
+	</head>
+	<body class="scroll">
+		<div id="app">
+			<div :style="{'background': backgrnd(), 'backgroundPosition': backgrndPos() }" class="background-random"></div>
+			<div class="position:relative;">
+				<div style="max-width: 500px;width: 100%; background: none; margin: 10px auto 0;">
+					<div style="width: 100%; padding: 10px;">
+						<div style="height: 80px;font-size: 48px;text-align: center;">
+							<ul class="tab-lists">
+								<li>
+									<a id="link-tab-1" v-on:click="setTab('me')" v-bind:class="[isActive == 'me' ? 'is-active' : '' , 'link-tab-1']">
+										<span class="tabName">Me</span>
+										<span class="mdi mdi-infinity"></span>
+									</a>
+								</li>
+								<li>
+									<a id="link-tab-2" v-on:click="setTab('profile')" v-bind:class="[isActive == 'profile' ? 'is-active' : '' , 'link-tab-2']">          
+										<span class="tabName">Profile</span>
+										<span class="mdi mdi-sigma-lower"></span>
+									</a>                                        
+								</li>
+								<li>
+									<a id="link-tab-3" v-on:click="setTab('links')" v-bind:class="[isActive == 'links' ? 'is-active' : '' , 'link-tab-3']">
+										<span class="tabName">Links</span>
+										<span class="mdi mdi-link"></span>
+									</a>
+								</li>
+								<div style="clear:both;"></div>
+							</ul>
+						</div>
+						<div style="width: 100%;background: none;position: relative;">
+							<div style="padding:10px;">
+								<div v-show="isActive == 'me'">
+									<div class="me-info">
+										<p>
+											> Hello, my name is Nathan_yu. I am a frontend developer in Shanghai, China.
+										</p>
+										<p>
+											> I love traveling (on Nature & Seaside ), I love listening to music. I like watching movies. In addition, I'm a fan of RealMadrid football club...
+										</p>
+										<p>
+											> I am interested in Javascript, Python and JAVA. I use Windows OS. 
+										</p>
+									</div>
+								</div>
+								<div v-show="isActive == 'profile'">
+									<div>
+										<div style="text-align: center;">
+											<img class="profilePhoto" src="./img/profile.jpg">
+											<div class="profileName">
+												<h1>Nathan</h1>
+											</div>
+										</div>
+										<div style="">
+											
+											<ul class="profile-tags">
+												<li><span class="mdi mdi-map-marker-outline"></span><span style="margin-left: 5px;">Shanghai,China</span></li>
+												<li><span class="mdi mdi-bookmark-outline"></span><span style="margin-left: 5px;">Frontend</span></li>
+												<div style="clear: both;"></div>
+											</ul>
+
+										</div>
+									</div>
+									<div class="randomHelloText">{{helloText}}</div>
+								</div>
+								<div v-show="isActive == 'links'">
+									<div style="position: relative;">
+										<div style="text-align: center;margin: 20px 0;">
+											<p><span style="color: rgba(255, 255, 255, 0.8);font-size: 100px;" class="mdi mdi-comment-account transition-color"></span></p>
+											<p><span style="color: rgba(255, 255, 255, 0.8);font-size: 20px;">Contact me...!</span></p>
+										</div>
+										<div style="font-size: 48px;color: white;text-align: center;">
+											<span class="mdi mdi-chevron-down"></span>
+										</div>
+										<ul class="accounts-links">
+											<li style="margin: auto; float:none">
+												<a href="https://github.com/yujiawei007" target="_blank" >
+													<span class="mdi mdi-github-face account-icon"></span>
+													<!-- <span class="account-name">Github</span> -->
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<button v-if="scrollToTopButton" v-on:click="scrollToTop" class="scrollToTopButton">
+					<span class="mdi mdi-chevron-up"></span>
+				</button>
+			</div>
+		</div>
+	</body>
+</html>
